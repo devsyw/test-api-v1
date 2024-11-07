@@ -1,6 +1,6 @@
 package com.starbridge.webservice.api.auth.service;
 
-import com.starbridge.webservice.api.auth.entity.User;
+import com.starbridge.webservice.api.auth.entity.Member;
 import com.starbridge.webservice.api.auth.entity.type.Platform;
 import com.starbridge.webservice.api.auth.repository.UserRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -44,15 +44,15 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         String phoneNumber = (String) attributes.getOrDefault("phone_number", ""); // 전화번호가 제공되지 않을 경우 공백
 
         // DB에 저장할 사용자 정보 설정
-        User user = userRepository.findByEmail(email)
-                .orElse(User.builder()
+        Member member = userRepository.findByEmail(email)
+                .orElse(Member.builder()
                         .name(name)
                         .email(email)
                         .phoneNumber(phoneNumber)
                         .platform(platform)
                         .build());
 
-        userRepository.save(user);
+        userRepository.save(member);
 
         return new DefaultOAuth2User(
                 oauth2User.getAuthorities(),

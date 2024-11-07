@@ -14,12 +14,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user")
+@Table(name = "member")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User extends BaseEntity {
+public class Member extends BaseEntity {
 
     private String name; // 이름
     private String email; // 이메일
