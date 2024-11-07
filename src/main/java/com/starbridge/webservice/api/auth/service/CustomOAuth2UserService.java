@@ -1,6 +1,7 @@
 package com.starbridge.webservice.api.auth.service;
 
 import com.starbridge.webservice.api.auth.entity.User;
+import com.starbridge.webservice.api.auth.entity.type.Platform;
 import com.starbridge.webservice.api.auth.repository.UserRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -27,7 +28,14 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2User oauth2User = defaultOAuth2UserService.loadUser(userRequest);
 
         // 유입 플랫폼 확인 (Google, Facebook 등)
-        String platform = userRequest.getClientRegistration().getRegistrationId();
+        String platformName = userRequest.getClientRegistration().getRegistrationId().toUpperCase();
+        Platform platform;
+        try {
+            platform = Platform.valueOf(platformName);
+        } catch (IllegalArgumentException e) {
+            platform = Platform.OTHER; // Enum에 정의되지 않은 플랫폼은 OTHER로 설정
+        }
+
         Map<String, Object> attributes = oauth2User.getAttributes();
 
         // 사용자 정보 추출 (OAuth2 플랫폼에 따라 필드명이 다를 수 있음)
