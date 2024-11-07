@@ -22,11 +22,12 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login/**").permitAll() // TODO 로그인 랜딩 만들면 나중에 바꿔야함
+                        .requestMatchers("/", "/auth/login", "/api/auth/oauth2/success").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2 -> oauth2
-                        .defaultSuccessUrl("/oauth2/success", true)
+                        .loginPage("/auth/login") // React에서 사용할 로그인 경로
+                        .defaultSuccessUrl("/api/auth/oauth2/success", true)
                         .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))
                 );
         return http.build();
