@@ -1,4 +1,4 @@
-package com.starbridge.webservice.common;
+package com.bridge.webservice.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

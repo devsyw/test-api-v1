@@ -1,4 +1,4 @@
-package com.starbridge.webservice;
+package com.bridge.webservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

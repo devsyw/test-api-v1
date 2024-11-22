@@ -1,4 +1,4 @@
-package com.starbridge.webservice;
+package com.bridge.webservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
