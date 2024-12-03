@@ -27,7 +27,7 @@ public class AuthController {
 
         // 응답 메시지 생성
         String responseMessage = """
-            서버와 성공적으로 통신하셨습니다.(v1) ~!~!~!
+            서버와 성공적으로 통신하셨습니다.(v1) ~~~
             [서버 IP: %s]
         """.formatted(serverIp); // JDK 17의 텍스트 블록 및 `formatted` 메서드 사용
 
