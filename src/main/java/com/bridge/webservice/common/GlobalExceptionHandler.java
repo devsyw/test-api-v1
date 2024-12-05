@@ -11,13 +11,13 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<ErrorResponse> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
-        ErrorResponse errorResponse = new ErrorResponse("Invalid argument!!!!!", ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse("Invalid argument!!!!!!", ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
-        ErrorResponse errorResponse = new ErrorResponse("Resource not found!!!!", ex.getMessage());
+        ErrorResponse errorResponse = new ErrorResponse("Resource not found!!!!!", ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
