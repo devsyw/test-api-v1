@@ -62,7 +62,48 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.shuigedeng/taotao-boot-starter-core -->
+<!--        <dependency>-->
+<!--            <groupId>io.github.shuigedeng</groupId>-->
+<!--            <artifactId>taotao-boot-starter-core</artifactId>-->
+<!--            <version>2025.01</version>-->
+<!--        </dependency>-->
+
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>kt-maven-releases</id>
+            <url>http://13.125.157.182:8081/repository/maven-releases/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>kt-maven-snapshots</id>
+            <url>http://13.125.157.182:8081/repository/maven-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>kt-maven-releases</id>
+            <url>http://13.125.157.182:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>kt-maven-snapshots</id>
+            <url>http://13.125.157.182:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <build>
         <plugins>
